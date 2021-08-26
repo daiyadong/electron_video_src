@@ -4,7 +4,13 @@ icon
  */
 const {app,BrowserWindow} = require('electron');
 function createWindow() {
-    win = new BrowserWindow({width:400,height:400,icon:'..\\..\\..\\images\\folder.ico'});
+    win = new BrowserWindow({width:400,height:400,icon:'..\\..\\..\\images\\folder.ico',
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true
+        }
+    });
     win.loadFile('index.html');
     if(process.platform != 'darwin') {
         win.setIcon('..\\..\\..\\images\\folder1.ico')

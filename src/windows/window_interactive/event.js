@@ -10,7 +10,13 @@ ipcMain.on('other',(event, str) => {
 });
 //  主窗口向other窗口发送数据
 function onClick_SendData() {
-    var win = new BrowserWindow({show:false,x:10,y:20,width:400,height:400});
+    var win = new BrowserWindow({show:false,x:10,y:20,width:400,height:400,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true
+        }
+    });
     win.loadFile('./other.html');
     win.once('ready-to-show',()=>{
         win.show();

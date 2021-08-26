@@ -10,7 +10,13 @@ global：全局变量，将所有窗口的BrowserWindow对象保存到windows数
  */
 const {app,BrowserWindow} = require('electron');
 function createWindow() {
-    win = new BrowserWindow({show:false});
+    win = new BrowserWindow({show:false,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true
+        }
+    });
     win.loadFile('./index.html');
     win.on('ready-to-show',()=>{
        win.show();

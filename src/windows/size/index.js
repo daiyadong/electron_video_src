@@ -29,7 +29,13 @@ setPosition(x,y,flag) flag：true，以动画效果改变位置（仅限于Mac O
 const {app,BrowserWindow} = require('electron');
 function createWindow() {
     win = new BrowserWindow({width:400,height:600,minWidth:200,minHeight:300,
-    maxWidth:600,maxHeight:600,x:20,y:20});
+    maxWidth:600,maxHeight:600,x:20,y:20,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true
+        }
+    });
     win.loadFile('index.html');
 
     win.on('closed',()=> {

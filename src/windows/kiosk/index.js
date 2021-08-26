@@ -8,7 +8,11 @@
  */
 const {app,BrowserWindow} = require('electron');
 function createWindow() {
-    win = new BrowserWindow({});
+    win = new BrowserWindow({        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true
+        }});
     win.loadFile('index.html');
 
     win.on('closed',()=> {

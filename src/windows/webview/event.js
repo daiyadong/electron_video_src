@@ -23,7 +23,7 @@ function onLoad() {
 
 function onClick_API() {
     webview = document.getElementById('webview1');
-    // webview.loadURL("https://www.baidu.com");
+    //webview.loadURL("https://www.baidu.com");
     webview.reload();
 
     console.log(webview.getTitle())
